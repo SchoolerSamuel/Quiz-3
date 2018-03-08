@@ -9,15 +9,12 @@ import pkgEnum.eSuit;
 public class Deck {
 
 	private ArrayList<Card> cards = new ArrayList<Card>();
-	private ArrayList<Card> singleDeck = new ArrayList<Card>();
 
 	public Deck(int noDecks) {
-		// makes a big deck using n number of single decks
+		
 		for (int i = 0; i < noDecks; i++) {
-			
 			makeDeck();
-			
-			cards.addAll(singleDeck);
+		
 		}
 		
 		Collections.shuffle(cards);
@@ -29,13 +26,11 @@ public class Deck {
 			
 			for (eRank Rank : eRank.values()) {		// for every Rank (1,2,3...)
 				
-				singleDeck.add(new Card(Rank, Suit));	// make a new card of the suit and rank and add it to single deck
+				cards.add(new Card(Rank, Suit));	// make a new card of the suit and rank and add it to single deck
 			}
 		}
 		
-		Collections.shuffle(singleDeck);
-		
-		return singleDeck;
+		return cards;
 	}
 	
 	public Card draw() throws Exception {

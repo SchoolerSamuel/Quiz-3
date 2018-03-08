@@ -1,32 +1,28 @@
+
 package cardGame;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+
+
 
 public class Hand {
-
-	private int iScore;
 	
 	private ArrayList<Card> cards = new ArrayList<Card>();
 	
 	Deck d = new Deck(1);
 	
 	
-	public Hand()
+	public Hand() throws Exception
 	{
-		
+
 	}
 	
 	public int[] ScoreHand()
 	{
-		int [] iScore = new int[2];
+		int[] iScore = new int[2];
 		
 		iScore[0] = 0;
 		iScore[1] = 0;
-		
-		//Collections.sort(cards);
-		
 		
 		for (Card c: cards)
 		{
