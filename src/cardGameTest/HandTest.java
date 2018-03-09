@@ -15,7 +15,7 @@ import pkgEnum.eRank;
 import pkgEnum.eSuit;
 
 public class HandTest {
-
+	
 	public int[] HandHelper(ArrayList<Card> cards) {
 
 		int[] result = null;
@@ -23,7 +23,7 @@ public class HandTest {
 		try {
 			
 			//	c = structure of class 'Hand'
-			Class<?> c = Class.forName("pkgCore.Hand");
+			Class<?> c = Class.forName("cardGame.Hand");
 
 			//	the arguments for 'AddCard' is a instance of Card
 			Class[] cArgsAddCard = new Class[1];
@@ -85,43 +85,104 @@ public class HandTest {
 		cards.add(new Card(eRank.TWO,eSuit.CLUBS));
 		cards.add(new Card(eRank.THREE,eSuit.CLUBS));
 		cards.add(new Card(eRank.FOUR,eSuit.CLUBS));
-		
+	
 		
 		int[] score = HandHelper(cards);
 		
-		//	TODO: Check Score to make sure it's right.  Something close to this:
+		
 		assertEquals(score[0],9);	
-		fail("the actual value was " + score[0]);
+		
 	}
 
 	@Test
 	public void test2() {
-		// TODO: Test 2-3-J, score should be 15
+		ArrayList<Card> cards = new ArrayList<Card>();
+		
+		cards.add(new Card(eRank.TWO,eSuit.CLUBS));
+		cards.add(new Card(eRank.THREE,eSuit.CLUBS));
+		cards.add(new Card(eRank.JACK,eSuit.CLUBS));
+	
+		
+		int[] score = HandHelper(cards);
+		
+		
+		assertEquals(score[0],15);
 	}
 
 	@Test
 	public void test3() {
-		// TODO: Test 2-3-J-J, score should be 25
+		ArrayList<Card> cards = new ArrayList<Card>();
+		
+		cards.add(new Card(eRank.TWO, eSuit.CLUBS));
+		cards.add(new Card(eRank.THREE,eSuit.CLUBS));
+		cards.add(new Card(eRank.JACK, eSuit.CLUBS));
+		cards.add(new Card(eRank.JACK, eSuit.CLUBS));
+	
+		
+		int[] score = HandHelper(cards);
+		
+		
+		assertEquals(score[0],25);
 	}
 
 	@Test
 	public void test4() {
-		// TODO: Test J-A, score should be 21
+		ArrayList<Card> cards = new ArrayList<Card>();
+		
+		cards.add(new Card(eRank.JACK, eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE, eSuit.CLUBS));
+		
+		int[] score = HandHelper(cards);
+		
+		
+		assertEquals(score[1], 21);
 	}
 
 	@Test
 	public void test5() {
-		// TODO: Test J-A-A, score should be 12
+		ArrayList<Card> cards = new ArrayList<Card>();
+		
+		cards.add(new Card(eRank.JACK,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+	
+		
+		int[] score = HandHelper(cards);
+		
+		
+		assertEquals(score[0],12);
 	}
 
 	@Test
 	public void test6() {
-		// TODO: Test J-A-A-A, score should be 13
+		ArrayList<Card> cards = new ArrayList<Card>();
+		
+		cards.add(new Card(eRank.JACK,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE, eSuit.CLUBS));
+		
+		int[] score = HandHelper(cards);
+		
+		
+		assertEquals(score[0],13);
 	}
 	
 	@Test
 	public void test7() {
-		//	TODO: Test A-A-A-A-2, score should be 6 or 16
+		ArrayList<Card> cards = new ArrayList<Card>();
+		
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.ACE,eSuit.CLUBS));
+		cards.add(new Card(eRank.TWO,eSuit.CLUBS));
+	
+		
+		int[] score = HandHelper(cards);
+		
+		
+		assertEquals(score[0],6);
 	}
 
 }

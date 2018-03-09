@@ -13,7 +13,7 @@ public class Hand {
 
 	Deck d = new Deck(1);
 
-	public Hand() throws Exception {
+	public Hand() {
 
 	}
 
