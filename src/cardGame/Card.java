@@ -1,13 +1,13 @@
 package cardGame;
+
 import pkgEnum.*;
+
 public class Card {
 
 	// attributes
 	private eRank eRank;
 	private eSuit eSuit;
 
-	
-	
 	public eRank geteRank() {
 		return eRank;
 	}
@@ -15,8 +15,6 @@ public class Card {
 	public eSuit geteSuit() {
 		return eSuit;
 	}
-
-
 
 	// constructor
 	public Card(eRank eRank, eSuit eSuit) {
