@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pkgEnum.eRank;
 import pkgEnum.eSuit;
@@ -46,9 +47,10 @@ public class Deck {
 		return cards.size();
 	}
 	
-	@SuppressWarnings("unchecked")
-	public int getRemaining(Object eNum) {
-		cards.removeIf(cards -> !((Collection<Card>) cards).contains(eNum));
-		return cards.size();
+	public int getRemaining(eRank eRank) {
+		return cards.stream().filter(d -> d.geteRank() == eRank).collect(Collectors.toList()).size();
+	}
+	public int getRemaining(eSuit eSuit) {
+		return cards.stream().filter(d -> d.geteSuit() == eSuit).collect(Collectors.toList()).size();
 	}
 }
