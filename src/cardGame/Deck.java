@@ -1,7 +1,9 @@
 package cardGame;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 import pkgEnum.eRank;
 import pkgEnum.eSuit;
@@ -43,5 +45,10 @@ public class Deck {
 	public int size() {
 		return cards.size();
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	public int getRemaining(Object eNum) {
+		cards.removeIf(cards -> !((Collection<Card>) cards).contains(eNum));
+		return cards.size();
+	}
 }
